@@ -1,0 +1,75 @@
+<!--
+//*********************************************************  
+ 
+//  
+ 
+// Copyright (c) Microsoft. All rights reserved.  
+ 
+// This code is licensed under the MIT License (MIT).  
+ 
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF  
+ 
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY  
+ 
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR  
+ 
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.  
+ 
+//  
+ 
+//*********************************************************  
+-->
+    
+<Page
+    x:Class="BrokeredComponent_App.MethodCallScenario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EnterpriseIPCApplication"
+    xmlns:common="using:SDKTemplate.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="InputTextBlock1" Grid.Row="0" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                Invoking a Method Call on the App Broker server. 
+            </TextBlock>
+            <Button x:Name="InvokeMethod" Grid.Row="1" Content="Invoke Method" Margin="0,0,10,0" Click="InvokeMethod_Click"/>
+
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="InputDefaultLayout"/>
+                    <VisualState x:Name="InputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+        <Grid x:Name="Output" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="ResultsList" Grid.Column="0" HorizontalAlignment="Left" Height="126" Margin="0,10,0,0" VerticalAlignment="Top" Width="400" BorderThickness="2" BorderBrush="LightGray"/>
+            <TextBlock x:Name="OutputTextBlock1" Grid.Column="1" TextWrapping="Wrap" MaxWidth="500" Margin="10,10,0,0" Style="{StaticResource BasicTextStyle}">
+                 This scenario illustrates the invoking of a regular method on the AppBroker server.  It should be noted that this type of call should never be made directly from the UI thread of an application.  A background thread (e.g. Task.Run()) can call the method and then use Dispatcher.RunAsync() to get results to the UI thread (if required).
+            </TextBlock>
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="OutputDefaultLayout"/>
+                    <VisualState x:Name="OutputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </Grid>
+</Page>

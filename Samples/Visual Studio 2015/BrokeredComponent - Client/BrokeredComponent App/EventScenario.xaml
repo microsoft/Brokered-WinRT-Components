@@ -1,0 +1,77 @@
+<!--
+//*********************************************************  
+ 
+//  
+ 
+// Copyright (c) Microsoft. All rights reserved.  
+ 
+// This code is licensed under the MIT License (MIT).  
+ 
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF  
+ 
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY  
+ 
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR  
+ 
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.  
+ 
+//  
+ 
+//*********************************************************  
+-->
+    
+<Page
+    x:Class="BrokeredComponent_App.EventScenario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EnterpriseIPCApplication"
+    xmlns:common="using:SDKTemplate.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="InputTextBlock1" Grid.Row="0" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                Receiving Events from the App Broker Server.
+            </TextBlock>
+            <Button Grid.Row="1"  x:Name="EventButton" Content="Subscribe to Server Event" Margin="0,0,10,0" Click="EventButton_Click"/>
+            <TextBlock Grid.Row="2" x:Name="SubscribedTextBlock" Margin="0,0,10,0" Style="{StaticResource BasicTextStyle}" />
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="InputDefaultLayout"/>
+                    <VisualState x:Name="InputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+
+        <Grid x:Name="Output" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="EventsList" HorizontalAlignment="Left" Height="106" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" BorderThickness="2" BorderBrush="LightGray"/>
+            <TextBlock x:Name="OutputTextBlock1" Grid.Column="1" TextWrapping="Wrap" MaxWidth="500" Margin="10,10,0,0" Style="{StaticResource BasicTextStyle}">
+                 This scenario illustrates receiving a series of events from the App Broker server.
+            </TextBlock>
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="OutputDefaultLayout"/>
+                    <VisualState x:Name="OutputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+
+    </Grid>
+</Page>

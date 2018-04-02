@@ -1,0 +1,81 @@
+<!--
+//*********************************************************  
+ 
+//  
+ 
+// Copyright (c) Microsoft. All rights reserved.  
+ 
+// This code is licensed under the MIT License (MIT).  
+ 
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF  
+ 
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY  
+ 
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR  
+ 
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.  
+ 
+//  
+ 
+//*********************************************************  
+-->
+    
+<Page
+    x:Class="BrokeredComponent_App.AsyncScenario"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EnterpriseIPCApplication"
+    xmlns:common="using:SDKTemplate.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="InputTextBlock1" Grid.Row="0" TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                Invoking an Async Operation on the App Broker Server.
+            </TextBlock>
+            <Button x:Name="AsyncButton" Grid.Row="1" Content="Go" Margin="0,0,10,0" Click="AsyncButton_Click"/>
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="InputDefaultLayout"/>
+                    <VisualState x:Name="InputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+
+        <Grid x:Name="Output" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" x:Name="AsyncResultBox" HorizontalAlignment="Left" Margin="0,0,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" />
+                <TextBlock Grid.Row="1" x:Name="AsyncProgressText" Margin="0,0,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Style="{StaticResource BasicTextStyle}"/>
+            </Grid>
+            <TextBlock x:Name="OutputTextBlock1" Grid.Column="1" TextWrapping="Wrap" MaxWidth="500" Style="{StaticResource BasicTextStyle}">
+                 This scenario illustrates invoking an async operation implemented by the App Broker server.  Since async operations are non-blocking, these kinds of calls can be made directly from a UI thread. 
+            </TextBlock>
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="OutputDefaultLayout"/>
+                    <VisualState x:Name="OutputBelow768Layout"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </Grid>
+</Page>
