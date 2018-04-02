@@ -2,7 +2,7 @@
 
 # Brokered Windows Runtime Components for a side-loaded UWP app
 
-This sample demonstrates an enterprise-targeted feature for Windows 10 that allows UWP apps to use existing legacy code responsible for key business-critical operations. The samples shows an example of Brokered Windows Runtime Components and their Proxy Stubs, enabling a side loaded UWP app to communicate with pre-existing desktop components. For more info see the [documentation page](https://aka.ms/brokeredsample).
+This sample demonstrates an enterprise-targeted feature for Windows 10 that allows UWP apps to use existing legacy code responsible for key business-critical operations. The samples shows an example of Brokered Windows Runtime Components and their Proxy Stubs, enabling a side loaded UWP app to communicate with pre-existing desktop components. For more info see the [documentation page](https://docs.microsoft.com/en-us/windows/uwp/winrt-components/brokered-windows-runtime-components-for-side-loaded-windows-store-apps).
 
 # Contributing
 
